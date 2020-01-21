@@ -17,7 +17,9 @@ module MainApi
       file = d_params[:source_file]
       office_obj.source.attach(io: File.open(file[:tempfile]),
        filename: file[:filename], content_type: 'application/csv')
+      office_obj.name = office_obj.source.filename.to_s
       office_obj.save!
+      office_obj.analyze_source_file
     end
 
     desc 'get all uploaded record'
@@ -28,10 +30,11 @@ module MainApi
     desc 'download uploaded file'
     params do
       requires :id
+      requires :type, values: %w[source response rejected], allow_blank: false
     end
-    get 'download/:id' do
+    get 'download/:type/:id' do
       d_params = declared(params, include_missing: false)
-      file = OfficeUpload.find(d_params[:id]).source
+      file = OfficeUpload.find(d_params[:id]).send(d_params[:type])
       header['Content-Disposition'] = "attachment; filename=#{file.filename.to_s}"
       env['api.format'] = :binary
       file.download
