@@ -1,0 +1,22 @@
+{
+  "hotels": [
+    {
+      "title": "Stockholm",
+      "lat": 12.986054957817784,
+      "lng": 77.31150502031254,
+      "description": "Stockholm is the capital and the largest city of Sweden and constitutes the most populated urban area in Scandinavia with a population of 2.1 million in the metropolitan area (2010)"
+    },
+    {
+      "title": "Oslo",
+      "lat": 12.95929014117014,
+      "lng": 77.68504017656254,
+      "description": "Oslo is a municipality, and the capital and most populous city of Norway with a metropolitan population of 1,442,318 (as of 2010)."
+    },
+    {
+      "title": "Copenhagen",
+      "lat": 13.082384387068352,
+      "lng": 77.65757435625004,
+      "description": "Copenhagen is the capital of Denmark and its most populous city, with a metropolitan population of 1,931,467 (as of 1 January 2012)."
+    }
+  ]
+}
